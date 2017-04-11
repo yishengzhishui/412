@@ -2,12 +2,28 @@
   <div class="job">
     <%= link_to("Add a job", new_job_path, class: "btn btn-primary pull-right") %>
   </div>
+
+  <div class="dropdown clearfix pull-right">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      排序
+       <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+      <li><%= link_to("按照薪资下限排序", jobs_path(:order => "by_lower_bound"))%></li>
+      <li><%= link_to("按照新姿上限排序", jobs_path(:order => "by_upper_bound"))%></li>
+      <li><%= link_to("按照发表时间排序", jobs_path)%></li>
+    </ul>
+  </div>
+
+
   <table class="table table-hover">
     <thead>
       <tr>
         <td>#</td>
-        <td>Title</td>
-        <td>Description</td>
+        <td>职缺</td>
+        <td>薪资下限</td>
+        <td>薪资上限</td>
+        <td>刊登时间</td>
       </tr>
     </thead>
     <tbody>
@@ -15,15 +31,10 @@
         <tr>
           <td>#</td>
           <td><%= link_to(g.title,job_path(g)) %></td>
-          <td><%= g.description %></td>
-          <td>
-              <%= link_to("Edit", edit_job_path(g), class: "btn btn-sm btn-default")%>
-              <%= link_to("Delete", job_path(g),    class: "btn btn-sm btn-default",
-                          method: :delete, data: { confirm: "Are you sure?" } )%>
-          </td>
-          <td>
-            <%= g.created_at%>
-          </td>
+          <td><%= g.wage_lower_bound%></td>
+          <td><%= g.wage_upper_bound%></td>
+          <td><%= g.created_at%></td>
+
         </tr>
       <% end %>
     </tbody>
