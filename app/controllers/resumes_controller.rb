@@ -17,13 +17,13 @@ class ResumesController < ApplicationController
       redirect_to job_path(@job)
     else
       render :new
-    end 
+    end
   end
 
   private
 
   def resume_params
-    params.require(:resume).permit(:content)
+    params.require(:resume).permit(:content,:attachment)
   end
 
 end
