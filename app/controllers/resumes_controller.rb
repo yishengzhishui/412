@@ -7,8 +7,8 @@ class ResumesController < ApplicationController
   end
 
   def create
-    @job = Jpb.find(params[:jon_id])
-    @resuem =Resume.new(resume_params)
+    @job = Job.find(params[:job_id])
+    @resume =Resume.new(resume_params)
     @resume.job = @job
     @resume.user = current_user
 

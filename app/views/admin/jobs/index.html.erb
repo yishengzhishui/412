@@ -6,8 +6,12 @@
     <thead>
       <tr>
         <td>#</td>
-        <td>Title</td>
-        <td>Description</td>
+        <td>职缺</td>
+        <td>收到履历数量</td>
+        <td>薪资下限</td>
+        <td>薪资上限</td>
+        <td>管理选项</td>
+        <td>刊登时间</td>
       </tr>
     </thead>
     <tbody>
@@ -17,7 +21,9 @@
             <%= render_job_status(g)%>
           </td>
           <td><%= link_to(g.title,admin_job_path(g)) %></td>
-          <td><%= g.description %></td>
+          <td><%= link_to(g.resumes.count , admin_job_resumes_path(g))%></td>
+          <td><%= g.wage_lower_bound%></td>
+          <td><%= g.wage_upper_bound%></td>
           <td>
               <%= link_to("Edit", edit_admin_job_path(g), class: "btn btn-sm btn-default")%>
               <%= link_to("Delete", admin_job_path(g),    class: "btn btn-sm btn-default",
