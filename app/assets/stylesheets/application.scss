@@ -31,17 +31,17 @@
 }
 
 .navbar-default .navbar-brand {
-    color: #EF6C00;
+    color: #EF6C00; //字体颜色
     padding: 10px 15px;
-    line-height: 30px;
+    line-height: 30px; //文字行高
 }
 
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-    color: #FF6F00;
-    background-color: transparent;
+    color: #FF6F00; //鼠标放置在链接上的文字颜色
+    background-color: transparent; //鼠标防止在链接上的背景颜色，这里设置为透明
 }
-
+//-----导航栏链接的颜色-------
 .navbar-default .navbar-nav > li > a {
     color: #EF6C00;
 }
