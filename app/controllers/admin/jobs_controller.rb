@@ -4,11 +4,12 @@ class Admin::JobsController < ApplicationController
   layout "admin"
 
   def index
-    @jobs =Job.all.recent
+    @jobs =Job.all.recent.paginate(:page => params[:page], :per_page => 5)
   end
 
   def show
     @job = Job.find(params[:id])
+    @job.recent.paginate(:page => [:page], :per_page => 8)
   end
 
   def new
