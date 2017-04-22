@@ -9,6 +9,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def require_isnot_admin
+    if current_user.admin?
+      flash[:alert] = 'You are not admin'
+      redirect_to root_path
+    end
+  end
+
   protected
   def configure_permitted_parametes
     devise_parameter_sanitizer.permit(:sign_up, keys: [:is_admin,:name])

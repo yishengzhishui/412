@@ -1,6 +1,6 @@
 class ResumesController < ApplicationController
   before_action :authenticate_user!
-
+  before_action :require_isnot_admin
   def new
     @job = Job.find(params[:job_id])
     @resume = Resume.new
