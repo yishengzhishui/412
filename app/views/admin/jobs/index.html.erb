@@ -12,6 +12,7 @@
         <td>薪资上限</td>
         <td>管理选项</td>
         <td>刊登时间</td>
+        <td>创建者</td>
       </tr>
     </thead>
     <tbody>
@@ -33,9 +34,8 @@
                 <%= link_to hide_admin_job_path(g), :method => :post,  :class => "btn btn-xs btn-warning" do %><i class="fa fa-eye-slash"></i><% end %>
               <% end %>
           </td>
-          <td>
-            <%= g.created_at%>
-          </td>
+          <td><%= g.created_at%></td>
+          <td><%= g.user.name%></td>
         </tr>
       <% end %>
     </tbody>
