@@ -3,8 +3,6 @@ class Admin::JobsController < ApplicationController
   before_action :require_is_admin
   layout "admin"
   before_action :find_job_and_check_permission, only: [:edit,:update,:destroy,:hide,:publish]
-
-
   def index
     @jobs =Job.all.recent.paginate(:page => params[:page], :per_page => 5)
   end
@@ -29,12 +27,9 @@ class Admin::JobsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
-
-
     if @job.update(job_params)
       redirect_to admin_jobs_path, notice: "Job updated!"
     else
@@ -49,22 +44,14 @@ class Admin::JobsController < ApplicationController
   end
 
   def publish
-
     @job.publish!
-
     redirect_to admin_jobs_path
   end
 
   def hide
-
     @job.hide!
-
     redirect_to admin_jobs_path
   end
-
-
-
-
 
   private
 
@@ -79,6 +66,4 @@ class Admin::JobsController < ApplicationController
       redirect_to root_path, alert: "You have no permission"
     end
   end
-
-
 end
