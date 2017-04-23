@@ -1,0 +1,46 @@
+<div class="col-md-12">
+  <div class="job">
+    <%= link_to("Add a job", new_admin_job_path, class: "btn btn-primary pull-right") %>
+  </div>
+  <table class="table table-hover table-boldered table-striped custab">
+    <thead>
+      <tr>
+        <td>#</td>
+        <td>职缺</td>
+        <td>收到履历数量</td>
+        <td>薪资下限</td>
+        <td>薪资上限</td>
+        <td>管理选项</td>
+        <td>刊登时间</td>
+        <td>创建者</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @jobs.each do |g| %>
+        <tr>
+          <td>
+            <%= render_job_status(g)%>
+          </td>
+          <td><%= link_to(g.title,admin_job_path(g)) %></td>
+          <td><%= link_to(g.resumes.count , admin_job_resumes_path(g))%></td>
+          <td><%= g.wage_lower_bound%></td>
+          <td><%= g.wage_upper_bound%></td>
+          <td>
+              <%= link_to edit_admin_job_path(g), :class => "btn btn-xs btn-info" do %><i class="fa fa-pencil"></i><% end %>
+              <%= link_to admin_job_path(g), :method => :delete, :class => "btn btn-xs btn-danger", :data => { :confirm => "Are you sure?" } do %><i class="fa fa-trash"></i><% end %>
+              <% if g.is_hidden %>
+                <%= link_to publish_admin_job_path(g) , :method => :post, :class => "btn btn-xs btn-success" do %><i class="fa fa-eye"></i><% end %>
+              <% else %>
+                <%= link_to hide_admin_job_path(g), :method => :post,  :class => "btn btn-xs btn-warning" do %><i class="fa fa-eye-slash"></i><% end %>
+              <% end %>
+          </td>
+          <td><%= g.created_at%></td>
+          <td><%= g.user.name%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="text-center">
+    <%= will_paginate @jobs%>
+  </div>
+</div>
