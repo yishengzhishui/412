@@ -4,7 +4,7 @@ class Admin::JobsController < ApplicationController
   layout "admin"
   before_action :find_job_and_check_permission, only: [:edit,:update,:destroy,:hide,:publish]
   def index
-    @jobs =Job.all.recent.paginate(:page => params[:page], :per_page => 5)
+    @jobs =current_user.jobs.recent.paginate(:page => params[:page], :per_page => 5)
   end
 
   def show
