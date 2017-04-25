@@ -1,19 +1,17 @@
 <div class="col-md-12">
-
-    <h2> <%= @job.title %></h2>
-    <p>
-      <%= simple_format(@job.description)%>
-    </p>
     <span class="pull-right">
       <%if !current_user.admin? %>
       <% if current_user && current_user.is_member_of?(@job) %>
         <%= link_to("删除收藏", quit_job_path(@job), method: :post, class: "btn btn-lg btn-default") %>
-        
+
       <% else %>
         <%= link_to("收藏职位", join_job_path(@job), method: :post, class: "btn btn-lg btn-default") %>
       <% end %>
         <%= link_to("投递简历", new_job_resume_path(@job), class: "btn btn-lg btn-default")%>
       <% end %>
-
     </span>
+    <h2> <%= @job.title %></h2>
+    <p>
+      <%= simple_format(@job.description)%>
+    </p>
 </div>
