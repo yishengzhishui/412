@@ -41,6 +41,6 @@
     </tbody>
   </table>
   <div class="text-center">
-    <%= will_paginate @jobs%>
+    <%= will_paginate(@jobs, renderer: BootstrapPagination::Rails) %>
   </div>
 </div>
