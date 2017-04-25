@@ -1,15 +1,14 @@
 <div>
-  <br>
-<% if @query_string.blank? %>
-    <div class="search-info-title">
+  <% if @query_string.blank? %>
+    <div class="text-center">
       Sorry, The search content cannot be blank, please type some product into to search.
     </div>
-
   <% elsif @jobs.blank? %>
     <br>
-    <h2 class="search-info-title">搜索信息不能为空，请输入关键字搜索</h2>
+    <h2 class="text-center">搜索信息不能为空，请输入关键字搜索</h2>
   <% else %>
-    <h2 class="search-info-title"> 有关"<%= @query_string %>"的工作信息 </h2>
+    <h2 class="text-center"> 有关"<%= @query_string %>"的工作信息 </h2>
+    <hr>
     <table class="table table-hover table-boldered table-striped custab">
       <thead>
         <tr>
@@ -29,13 +28,11 @@
             <td><%= g.wage_upper_bound%></td>
             <td><%= g.created_at%></td>
           </tr>
-
         <% end %>
       </tbody>
     </table>
     <div class="text-center">
       <%= will_paginate(@jobs, renderer: BootstrapPagination::Rails) %>
     </div>
-
   <% end %>
 </div>
