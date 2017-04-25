@@ -1,40 +1,31 @@
 <div class="col-md-12">
-
-  <div class="dropdown clearfix pull-right">
-    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-      排序
-       <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
-      <li><%= link_to("按照薪资下限排序", jobs_path(:order => "by_lower_bound"))%></li>
-      <li><%= link_to("按照新姿上限排序", jobs_path(:order => "by_upper_bound"))%></li>
-      <li><%= link_to("按照发表时间排序", jobs_path)%></li>
-    </ul>
-  </div>
-
-
-  <table class="table table-hover table-boldered table-striped custab">
-    <thead>
-      <tr>
-        <td>#</td>
-        <td>职缺</td>
-        <td>薪资下限</td>
-        <td>薪资上限</td>
-        <td>刊登时间</td>
-      </tr>
-    </thead>
-    <tbody>
-      <% @jobs.each do |g| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      job
+    </div>
+    <table class="table table-hover ">
+      <thead>
         <tr>
           <td>#</td>
-          <td><%= link_to(g.title,job_path(g)) %></td>
-          <td><%= g.wage_lower_bound%></td>
-          <td><%= g.wage_upper_bound%></td>
-          <td><%= g.created_at%></td>
+          <td>职缺</td>
+          <td>薪资下限</td>
+          <td>薪资上限</td>
+          <td>刊登时间</td>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% @jobs.each do |g| %>
+          <tr>
+            <td>#</td>
+            <td><%= link_to(g.title,job_path(g)) %></td>
+            <td><%= g.wage_lower_bound%></td>
+            <td><%= g.wage_upper_bound%></td>
+            <td><%= g.created_at%></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
   <div class="text-center">
     <%= will_paginate(@jobs, renderer: BootstrapPagination::Rails) %>
   </div>
