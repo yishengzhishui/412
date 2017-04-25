@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :authenticate_user! ,only: [:new,:edit,:create,:update,:destroy]
+  before_action :authenticate_user! ,only: [:join, :quit]
   before_action :validate_search_key, only: [:search]
 
   def index
@@ -32,6 +32,32 @@ class JobsController < ApplicationController
       @jobs = search_result.paginate(:page => params[:page], :per_page => 5 )
     end
   end
+
+  def join
+    @job = Job.find(params[:id])
+
+     if !current_user.is_member_of?(@job)
+       current_user.join!(@job)
+       flash[:notice] = "成功加入收藏！"
+     else
+       flash[:warning] = "已加入收藏！"
+     end
+
+     redirect_to job_path(@job)
+   end
+
+   def quit
+     @job = Job.find(params[:id])
+
+     if current_user.is_member_of?(@job)
+       current_user.quit!(@job)
+       flash[:alert] = "已删除收藏！"
+     else
+       flash[:warning] = "未加入收藏！"
+     end
+
+     redirect_to job_path(@job)
+   end
 
 
   protected
