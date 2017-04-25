@@ -41,6 +41,9 @@
     color: #FF6F00; //鼠标放置在链接上的文字颜色
     background-color: transparent; //鼠标防止在链接上的背景颜色，这里设置为透明
 }
+
+
+
 //-----导航栏链接的颜色-------
 .navbar-default .navbar-nav > li > a {
     color: #EF6C00;
@@ -142,8 +145,11 @@ footer .footer-below {
     background-color: #233140;
 }
 
+//--------footer-bottom------
 
-
+html { height: 100%;}
+  body { min-height: 100%; display: flex; flex-direction: column;}
+  .content { flex: 1;}
 //---------table---------
 .custab{
   border: 1px solid #ccc;
