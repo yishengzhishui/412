@@ -38,9 +38,6 @@ class JobsController < ApplicationController
 
      if !current_user.is_member_of?(@job)
        current_user.join!(@job)
-       flash[:notice] = "成功加入收藏！"
-     else
-       flash[:warning] = "已加入收藏！"
      end
 
      redirect_to job_path(@job)
@@ -51,9 +48,6 @@ class JobsController < ApplicationController
 
      if current_user.is_member_of?(@job)
        current_user.quit!(@job)
-       flash[:alert] = "已删除收藏！"
-     else
-       flash[:warning] = "未加入收藏！"
      end
 
      redirect_to job_path(@job)

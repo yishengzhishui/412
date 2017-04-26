@@ -2,10 +2,11 @@
     <span class="pull-right">
       <%if !current_user.admin? %>
       <% if current_user && current_user.is_member_of?(@job) %>
-        <%= link_to("删除收藏", quit_job_path(@job), method: :post, class: "btn btn-lg btn-default") %>
-
+        <%= link_to quit_job_path(@job), method: :post, class: "btn btn-lg btn-danger pull-right" do%>
+        <i class="fa fa-bookmark-o">取消收藏</i><% end %>
       <% else %>
-        <%= link_to("收藏职位", join_job_path(@job), method: :post, class: "btn btn-lg btn-default") %>
+        <%= link_to join_job_path(@job), method: :post, class: "btn btn-lg btn-success pull-right" do%>
+          <i class="fa fa-bookmark">收藏职位</i><% end %>
       <% end %>
         <%= link_to("投递简历", new_job_resume_path(@job), class: "btn btn-lg btn-default")%>
       <% end %>
