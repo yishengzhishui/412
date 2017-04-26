@@ -8,11 +8,10 @@
         <td>#</td>
         <td>职缺</td>
         <td>收到履历数量</td>
-        <td>薪资下限</td>
-        <td>薪资上限</td>
+        <td>薪资范围</td>
         <td>管理选项</td>
-        <td>刊登时间</td>
-        <td>创建者</td>
+        <td>发布时间</td>
+        <td>创建公司</td>
       </tr>
     </thead>
     <tbody>
@@ -23,8 +22,14 @@
           </td>
           <td><%= link_to(g.title,admin_job_path(g)) %></td>
           <td><%= link_to(g.resumes.count , admin_job_resumes_path(g))%></td>
-          <td><%= g.wage_lower_bound%></td>
-          <td><%= g.wage_upper_bound%></td>
+          <td>
+            <span class="badge badge-info">
+              <span class="fa fa-rmb"></span>
+              <%= g.wage_lower_bound%>
+              -
+              <%= g.wage_upper_bound%>
+            </span>
+          </td>
           <td>
               <%= link_to edit_admin_job_path(g), :class => "btn btn-xs btn-info" do %><i class="fa fa-pencil"></i><% end %>
               <%= link_to admin_job_path(g), :method => :delete, :class => "btn btn-xs btn-danger", :data => { :confirm => "Are you sure?" } do %><i class="fa fa-trash"></i><% end %>
@@ -34,7 +39,7 @@
                 <%= link_to hide_admin_job_path(g), :method => :post,  :class => "btn btn-xs btn-warning" do %><i class="fa fa-eye-slash"></i><% end %>
               <% end %>
           </td>
-          <td><%= g.created_at%></td>
+          <td><%= g.created_at.to_date%></td>
           <td><%= g.user.name%></td>
         </tr>
       <% end %>

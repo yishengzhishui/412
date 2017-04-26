@@ -1,28 +1,51 @@
 <div class="col-md-12">
   <div class="panel panel-default">
     <div class="panel-heading text-center">
-      <h1>招聘信息</h1>
+      <h1>
+      招聘信息
+      <div class="dropdown clearfix pull-right">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          排序
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+            <li>
+              <%= link_to("按照薪资下限排序", jobs_path(:order => "by_lower_bound")) %>
+            </li>
+            <li>
+                <%= link_to("按照薪资上限排序", jobs_path(:order => "by_upper_bound")) %>
+            </li>
+            <li>
+              <%= link_to("按照发表时间排序", jobs_path ) %>
+            </li>
+        </ul>
+      </div>
+      </h1>
     </div>
     <table class="table table-hover text-center ">
       <thead>
         <tr>
-          <td>#</td>
-          <td>职缺</td>
-          <td>薪资下限</td>
-          <td>薪资上限</td>
-          <td>发布时间</td>
-          <td>发布者</td>
 
+          <td>职缺</td>
+          <td>薪资范围</td>
+          <td>发布时间</td>
+          <td>创建公司</td>
         </tr>
       </thead>
       <tbody>
         <% @jobs.each do |g| %>
           <tr>
-            <td>#</td>
+
             <td><%= link_to(g.title,job_path(g)) %></td>
-            <td><%= g.wage_lower_bound%></td>
-            <td><%= g.wage_upper_bound%></td>
-            <td><%= g.created_at%></td>
+            <td>
+              <span class="badge badge-info">
+                <span class="fa fa-rmb"></span>
+                <%= g.wage_lower_bound%>
+                -
+                <%= g.wage_upper_bound%>
+              </span>
+          </td>
+            <td><%= g.created_at.to_date%></td>
             <td><%= g.user.name%></td>
           </tr>
         <% end %>
