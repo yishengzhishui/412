@@ -2,16 +2,21 @@
   <div class="panel-heading">
     <div class="row">
       <div class="col-md-12">
-        <h3 class="panel-title">
-          <%= resume.user.email%>
-        </h3>
+        <h2 class="panel-title">
+          求职者邮箱－<%= resume.user.email%>
+        </h2>
       </div>
     </div>
   </div>
 
   <div class="panel-body">
     <div class="trix-content">
-      <p><%= simple_format(resume.content)%></p>
+      <p>
+        <h4>简历内容</h4>
+        <blockquote>
+          <%= simple_format(resume.content) %>
+        </blockquote>
+      </p>
     </div>
 
     <hr>

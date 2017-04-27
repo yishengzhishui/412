@@ -30,6 +30,7 @@
           <td>薪资范围</td>
           <td>发布时间</td>
           <td>发布公司</td>
+          <td>简历</td>
         </tr>
       </thead>
       <tbody>
@@ -47,6 +48,21 @@
           </td>
             <td><%= g.created_at.to_date%></td>
             <td><%= g.user.name%></td>
+            <td>
+              <% if g.resumes.count > 0 %>
+                <%= link_to job_resumes_path(g) do %>
+                  <button type="button" class="btn btn-default btn-xs">
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span> 已投
+                  </button>
+                <% end %>
+              <% else %>
+                <%= link_to job_resumes_path(g) do %>
+                  <button type="button" class="btn btn-default btn-xs">
+                    <span class="glyphicon glyphicon-empty" aria-hidden="true"></span> 未投
+                  </button>
+                <% end %>
+              <% end %>
+            </td>
           </tr>
         <% end %>
       </tbody>
