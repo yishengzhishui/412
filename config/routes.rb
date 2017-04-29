@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :resumes
     collection do
       get :search
+      get :operation
+      get :produce
     end
   end
 

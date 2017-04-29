@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :resumes
   has_many :jobs
 
+#------收藏功能-------
   has_many :job_relationships
   has_many :participated_jobs, :through => :job_relationships, :source => :job
 
