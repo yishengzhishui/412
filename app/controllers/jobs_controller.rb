@@ -36,22 +36,22 @@ class JobsController < ApplicationController
   def operation
     @jobs = case params[:order]
     when 'by_lower_bound'
-      Job.published.where(:category => "海洋开发及航运").order('wage_lower_bound DESC').paginate(:page => params[:page], :per_page => 10)
+      Job.published.where(:category => "海洋开发及航运").order('wage_lower_bound DESC').paginate(:page => params[:page], :per_page => 8)
     when 'by_upper_bound'
-      Job.published.where(:category => "海洋开发及航运").order('wage_upper_bound DESC').paginate(:page => params[:page], :per_page => 10)
+      Job.published.where(:category => "海洋开发及航运").order('wage_upper_bound DESC').paginate(:page => params[:page], :per_page => 8)
     else
-      Job.published.where(:category => "海洋开发及航运").recent.paginate(:page => params[:page], :per_page => 10)
+      Job.published.where(:category => "海洋开发及航运").recent.paginate(:page => params[:page], :per_page => 8)
     end
   end
 
   def produce
     @jobs = case params[:order]
     when 'by_lower_bound'
-      Job.published.where(:category => "设计与制造").order('wage_lower_bound DESC').paginate(:page => params[:page], :per_page => 10)
+      Job.published.where(:category => "设计与制造").order('wage_lower_bound DESC').paginate(:page => params[:page], :per_page => 8)
     when 'by_upper_bound'
-      Job.published.where(:category => "设计与制造").order('wage_upper_bound DESC').paginate(:page => params[:page], :per_page => 10)
+      Job.published.where(:category => "设计与制造").order('wage_upper_bound DESC').paginate(:page => params[:page], :per_page => 8)
     else
-      Job.published.where(:category => "设计与制造").recent.paginate(:page => params[:page], :per_page => 10)
+      Job.published.where(:category => "设计与制造").recent.paginate(:page => params[:page], :per_page => 8)
     end
   end
 
@@ -93,7 +93,7 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:title,:description,:wage_upper_bound, :wage_lower_bound,:contact_email,:is_hidden)
+    params.require(:job).permit(:title,:description,:wage_upper_bound, :wage_lower_bound, :contact_email, :is_hidden, :category, :city)
   end
 
 

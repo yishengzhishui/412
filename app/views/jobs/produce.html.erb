@@ -39,10 +39,10 @@
           <tr>
             <td>职缺</td>
             <td>类别</td>
+            <td>城市</td>
             <td>薪资范围</td>
             <td>发布时间</td>
             <td>创建公司</td>
-            <td>城市</td>
           </tr>
         </thead>
         <tbody>
@@ -50,6 +50,7 @@
             <tr>
               <td><%= link_to(g.title,job_path(g)) %></td>
               <td><%= g.category%></td>
+              <td><%= g.city%></td>
               <td>
                 <span class="badge badge-info">
                   <span class="fa fa-rmb"></span>
@@ -60,7 +61,6 @@
             </td>
               <td><%= g.created_at.to_date%></td>
               <td><%= g.user.name%></td>
-              <td><%= g.city%></td>
             </tr>
           <% end %>
         </tbody>
