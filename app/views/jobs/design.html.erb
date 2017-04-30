@@ -22,7 +22,7 @@
     <div class="panel panel-default">
       <div class="panel-heading text-center">
         <h2>
-        营运-职位信息
+        设计－职位信息
           <div class="dropdown clearfix pull-right">
             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
               排序
@@ -30,13 +30,13 @@
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
                 <li>
-                  <%= link_to("按照薪资下限排序", operation_jobs_path(:order => "by_lower_bound")) %>
+                  <%= link_to("按照薪资下限排序", design_jobs_path(:order => "by_lower_bound")) %>
                 </li>
                 <li>
-                    <%= link_to("按照薪资上限排序", operation_jobs_path(:order => "by_upper_bound")) %>
+                    <%= link_to("按照薪资上限排序", design_jobs_path(:order => "by_upper_bound")) %>
                 </li>
                 <li>
-                  <%= link_to("按照发表时间排序", operation_jobs_path ) %>
+                  <%= link_to("按照发表时间排序", design_jobs_path ) %>
                 </li>
             </ul>
           </div>

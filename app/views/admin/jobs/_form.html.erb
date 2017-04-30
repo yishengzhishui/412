@@ -1,7 +1,7 @@
 <%= simple_form_for [:admin ,@job] do |f| %>
   <div class="form-job">
     <%= f.input :title, :label => "职缺"%>
-    <%= f.input :category,:label => "类别", as: :radio_buttons, collection: [['设计与制造', '设计与制造'],['海洋开发及运营', '海洋开发及运营']], required: '设计与制造' %>
+    <%= f.input :category,:label => "类别", as: :radio_buttons, collection: [['设计', '设计'],['制造', '制造'],['营运','营运']], required: '设计' %>
     <%= f.input :city, :label => "城市" %>
     <%= f.input :description, :label => "职缺描述"%>
     <%= f.input :wage_upper_bound, :label => "薪资上限"%>

@@ -1,16 +1,20 @@
 <div class="col-md-12">
   <div class="col-md-10 col-md-offset-1">
     <div class="row">
-      <div class="col-md-4">
-          <%= link_to image_tag("pic-1.jpg", class: "img-rounded img-responsive img-center"), image_path(produce_jobs_path(:order => "category"))%>
-          <h3 class="text-center"><%= link_to("设计与制造", produce_jobs_path(:order => "category"))%></h3>
+      <div class="col-md-3">
+          <%= link_to image_tag("pic-1.jpg", class: "img-rounded img-responsive img-center"), image_path(design_jobs_path(:order => "category"))%>
+          <h3 class="text-center"><%= link_to("设计", produce_jobs_path(:order => "category"))%></h3>
       </div>
-      <div class="col-md-4">
-          <%= link_to image_tag("pic-2.jpg", class: "img-rounded img-responsive img-center"), image_path(operation_jobs_path(:order => "category"))%>
-          <h3 class="text-center"><%= link_to("海洋开发及航运", operation_jobs_path(:order => "category" ))%></h3>
+      <div class="col-md-3">
+          <%= link_to image_tag("pic-2.jpg", class: "img-rounded img-responsive img-center"), image_path(produce_jobs_path(:order => "category"))%>
+          <h3 class="text-center"><%= link_to("制造", produce_jobs_path(:order => "category"))%></h3>
       </div>
-      <div class="col-md-4">
-          <%= link_to image_tag("pic-3.jpg", class: "img-rounded img-responsive img-center"), image_path(jobs_path)%>
+      <div class="col-md-3">
+          <%= link_to image_tag("pic-3.jpg", class: "img-rounded img-responsive img-center"), image_path(operation_jobs_path(:order => "category"))%>
+          <h3 class="text-center"><%= link_to("营运", operation_jobs_path(:order => "category" ))%></h3>
+      </div>
+      <div class="col-md-3">
+          <%= link_to image_tag("pic-4.jpg", class: "img-rounded img-responsive img-center"), image_path(jobs_path)%>
           <h3 class="text-center"><%= link_to("全部", jobs_path) %></h3>
       </div>
     </div>
@@ -18,7 +22,7 @@
     <div class="panel panel-default">
       <div class="panel-heading text-center">
         <h2>
-        设计与制造-招聘信息
+        制造-职位信息
           <div class="dropdown clearfix pull-right">
             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
               排序

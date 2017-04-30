@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       get :search
       get :operation
       get :produce
+      get :design
     end
   end
 
