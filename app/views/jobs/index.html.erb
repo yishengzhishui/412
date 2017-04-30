@@ -3,42 +3,47 @@
     <div class="row">
       <div class="col-md-4">
           <%= link_to image_tag("pic-1.jpg", class: "img-rounded img-responsive img-center"), image_path(produce_jobs_path(:order => "category"))%>
-          <h2 class="text-center">设计与制造</h2>
+          <h3 class="text-center"><%= link_to("设计与制造", produce_jobs_path(:order => "category"))%></h3>
       </div>
-      <div class="col-md-4 col-md-offset-4">
+      <div class="col-md-4">
           <%= link_to image_tag("pic-2.jpg", class: "img-rounded img-responsive img-center"), image_path(operation_jobs_path(:order => "category"))%>
-          <h2 class="text-center">海洋开发及航运</h2>
+          <h3 class="text-center"><%= link_to("海洋开发及航运", operation_jobs_path(:order => "category" ))%></h3>
+      </div>
+      <div class="col-md-4">
+          <%= link_to image_tag("pic-3.jpg", class: "img-rounded img-responsive img-center"), image_path(jobs_path)%>
+          <h3 class="text-center"><%= link_to("全部", jobs_path) %></h3>
       </div>
     </div>
     <hr>
     <div class="panel panel-default">
       <div class="panel-heading text-center">
-        <h1>
+        <h2>
         招聘信息
-        <div class="dropdown clearfix pull-right">
-          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            排序
-              <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
-              <li>
-                <%= link_to("按照薪资下限排序", jobs_path(:order => "by_lower_bound")) %>
-              </li>
-              <li>
-                  <%= link_to("按照薪资上限排序", jobs_path(:order => "by_upper_bound")) %>
-              </li>
-              <li>
-                <%= link_to("按照发表时间排序", jobs_path ) %>
-              </li>
-          </ul>
-        </div>
-        </h1>
+          <div class="dropdown clearfix pull-right">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              排序
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+                <li>
+                  <%= link_to("按照薪资下限排序", jobs_path(:order => "by_lower_bound")) %>
+                </li>
+                <li>
+                    <%= link_to("按照薪资上限排序", jobs_path(:order => "by_upper_bound")) %>
+                </li>
+                <li>
+                  <%= link_to("按照发表时间排序", jobs_path ) %>
+                </li>
+            </ul>
+          </div>
+        </h2>
       </div>
       <table class="table table-hover text-center ">
         <thead>
           <tr>
-
             <td>职缺</td>
+            <td>类别</td>
+            <td>城市</td>
             <td>薪资范围</td>
             <td>发布时间</td>
             <td>创建公司</td>
@@ -47,8 +52,9 @@
         <tbody>
           <% @jobs.each do |g| %>
             <tr>
-
               <td><%= link_to(g.title,job_path(g)) %></td>
+              <td><%= g.category%></td>
+              <td><%= g.city%></td>
               <td>
                 <span class="badge badge-info">
                   <span class="fa fa-rmb"></span>
