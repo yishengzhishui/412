@@ -31,6 +31,7 @@
 
 .navbar-default .navbar-brand {
     color: #EF6C00; //字体颜色
+    font-size:  28px; //字体大小
     padding: 10px 15px;
     height: 30px;
     line-height: 30px; //文字行高
@@ -47,10 +48,13 @@
 
 .navbar-brand > img{
      display: inline-block; //图片和链接文字显示在同一行
+     margin-bottom: 5px;
      margin-right: 10px; //图片和链接文字拉开一点距离
      width: 32px; //定制图片宽度
      height: 32px; //定制图片高度
+     line-height: 32px;
 }
+
 
 
 
@@ -89,7 +93,7 @@
   margin-top: -20px;
 
 .box-inner {
-    background-color: rgba(250, 250, 250, 0.69);
+    // background-color: rgba(250, 250, 250, 0.69);
     padding-bottom: 5px;
     margin-top: 150px;
     margin-bottom: 150px;
@@ -98,21 +102,23 @@
 .title {
     text-align: center;
     margin-bottom: 80px;
+    color: #616161;
 }
 
-.slogan {
-    color: #222;
-    margin-top: 10px;
-    margin-bottom: 50px;
-    text-align: center;
-    font-size: 25px;
-    top: 12px;
-}
+// .slogan {
+//     color: #222;
+//     margin-top: 10px;
+//     margin-bottom: 50px;
+//     text-align: center;
+//     font-size: 25px;
+//     top: 12px;
+// }
 
 .lead {
-    margin-bottom: 60px;
+    margin-bottom: 30px;
+    margin-top: 200px;
     text-align: center;
-    color: white;
+    color: #81D4FA;
 }
 }
 
