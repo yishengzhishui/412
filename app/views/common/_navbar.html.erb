@@ -8,6 +8,8 @@
     </div>
 
 
+
+
     <div class="col-md-6">
       <div class="nav navbar-nav">
         <%= form_tag search_jobs_path , :method => :get do %>
@@ -28,24 +30,25 @@
     <!-- Collect the nav links, forms, and other content for toggling-->
     <div class="col-md-3">
       <div class="collpase navbar-collapse" id="bs-exampel-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          <% if !current_user %>
-            <li><%= link_to("注册", new_user_registration_path) %> </li>
-            <li><%= link_to("登录", new_user_session_path) %></li>
-          <% else %>
-            <li class="dropdown">
-              <a href="#" class="dropdown-togggle" data-toggle="dropdown">
-                Hi!,<%= current_user.name  %>
-                <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <% if current_user.admin?%>
-                  <li><%= link_to("已发布的职位", admin_jobs_path)%></li>
-                <% else %>
-                  <li><%= link_to("已收藏的职位", account_jobs_path)%></li>
-                <% end %>
-                <li class="divider"><li>
-                <li><%= link_to("登出", destroy_user_session_path, method: :delete)%></li>
+        <ul class="nav navbar-nav navbar-right log-word">
+            <% if !current_user %>
+              <li class="navbar-listItem"><%= button_to("注册", new_user_registration_path , method: :get,class: "btn navbar-btn btn-default") %> </li>
+              <li class="navbar-listItem"><%= button_to("登录", new_user_session_path, method: :get,class: "btn navbar-btn btn-default") %></li>
+            <% else %>
+              <li class="dropdown">
+                <a href="#" class="dropdown-togggle" data-toggle="dropdown">
+                  Hi!,<%= current_user.name  %>
+                  <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <% if current_user.admin?%>
+                    <li><%= link_to("已发布的职位", admin_jobs_path)%></li>
+                  <% else %>
+                    <li><%= link_to("已收藏的职位", account_jobs_path)%></li>
+                  <% end %>
+                  <li class="divider"><li>
+                  <li><%= link_to("登出", destroy_user_session_path, method: :delete)%></li>
+
               </ul>
             </li>
           <% end %>

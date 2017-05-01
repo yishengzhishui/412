@@ -24,13 +24,13 @@
 //---------Navbar---------
 
 .navbar-default {
-    background-color: #212121;
-    border-color: #212121;
+    background-color: #ECEFF1;
+    border-color: #FAFAFA;
     border-radius: 0;
 }
 
 .navbar-default .navbar-brand {
-    color: #EF6C00; //字体颜色
+    color: #3E2723; //字体颜色
     font-size:  28px; //字体大小
     padding: 10px 15px;
     height: 30px;
@@ -39,13 +39,16 @@
 
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-    color: #FF6F00; //鼠标放置在链接上的文字颜色
+    color: #3E2723; //鼠标放置在链接上的文字颜色
     background-color: transparent; //鼠标防止在链接上的背景颜色，这里设置为透明
+
 }
+
+//------搜索栏-------
 *#search-id {
   margin-top: 8px;
 }
-
+//-------图标---------
 .navbar-brand > img{
      display: inline-block; //图片和链接文字显示在同一行
      margin-bottom: 5px;
@@ -55,24 +58,41 @@
      line-height: 32px;
 }
 
+//-----链接区域字-------
+.navbar-left {
+  color: #717171; /*文字的颜色*/
+  text-decoration: none; /*不要下划线啦，好丑*/
 
+}
+
+
+//-----登录区域字-------
+.navbar-listItem {
+  float: left; /*li是block元素，我们知道block元素是会独占一行的，如果要让它们在一行，那就要加上float*/
+  padding-left: 10px; /*左边加点空间，不然太挤啦*/
+  padding-right: 10px; /*右边加点空间，不然太挤啦*/
+}
+
+.log-word {
+  font-size: 18px;
+}
 
 
 //-----导航栏链接的颜色-------
 .navbar-default .navbar-nav > li > a {
-    color: #EF6C00;
+    color: #212121;
 }
 
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-    color: #FF6F00;
+    color: #212121;
     background-color: transparent;
 }
 
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-    color: #FF6F00;
+    color: #212121;
     background-color: #FFE0B2;
 }
 
@@ -120,6 +140,20 @@
     text-align: center;
     color: #81D4FA;
 }
+}
+.btn.btn-primary-welcome{
+    background-color: transparent;
+    color: #455A64;
+    border-color:#8D6E63;
+    border-width: 3px;
+    padding: 10px 20px;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+.btn.btn-default-welcome{
+  margin-top: -20px;
+  margin-left: 20px; /*左边加点空间，不然太挤啦*/
+  margin-right: 20px; /*右边加点空间，不然太挤啦*/
 }
 
 
