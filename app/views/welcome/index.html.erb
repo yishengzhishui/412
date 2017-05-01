@@ -1,7 +1,7 @@
 <div class="col-md-12">
   <div class="row box">
     <div class="box-inner col-md-6 col-md-offset-3">
-      <h1 class="title">新的职业征途在这里起航</h1>
+      <h1 class="title">职业人生在这里扬帆起航</h1>
       <p class="lead">
         <%= link_to("前程无忧", jobs_path, class: 'btn btn-primary-welcome btn-default-welcome') %>
         <% if !current_user %>
@@ -20,15 +20,17 @@
       <div class="col-lg-5 col-sm-6">
         <hr class="section-heading-spacer">
         <div class="clearfix"></div>
-        <h2 class="section-heading">人才难得</h2>
-        <p class="lead">来这里找到你想要的人才</p>
+        <h2 class="section-heading">设计</h2>
+        <p class="lead">
+
+        </p>
       </div>
       <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-        <%= image_tag 'pic-1.jpg', class: 'img-rounded img-responsive img-center' %>
+        <%= link_to image_tag("pic-1.jpg", class: "img-rounded img-responsive img-center"), image_path(design_jobs_path(:order => "category"))%>
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 <div class="content-section-b">
   <div class="container">
@@ -36,11 +38,13 @@
       <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
         <hr class="section-heading-spacer">
         <div class="clearfix"></div>
-        <h2 class="section-heading">想要前程无忧</h2>
-        <p class="lead">来这里找你你喜欢的工作</p>
+        <h2 class="section-heading">制造</h2>
+        <p class="lead">
+
+        </p>
       </div>
       <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-        <%= image_tag 'pic-2.jpg', class: 'img-rounded img-responsive img-center' %>
+        <%= link_to image_tag("pic-2.jpg", class: "img-rounded img-responsive img-center"), image_path(produce_jobs_path(:order => "category"))%>
       </div>
     </div>
   </div>
@@ -52,11 +56,13 @@
       <div class="col-lg-5 col-sm-6">
         <hr class="section-heading-spacer">
         <div class="clearfix"></div>
-        <h2 class="section-heading">来吧！你想要的都在这里</h2>
-        <p class="lead"></p>
+        <h2 class="section-heading">营运</h2>
+        <p class="lead">
+          
+        </p>
       </div>
       <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-        <%= image_tag 'pic-3.jpg', class: 'img-rounded img-responsive img-center' %>
+        <%= link_to image_tag("pic-3.jpg", class: "img-rounded img-responsive img-center"), image_path(operation_jobs_path(:order => "category"))%>
       </div>
     </div>
   </div>
