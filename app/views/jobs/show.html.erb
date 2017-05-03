@@ -6,7 +6,7 @@
         </div>
         <div class="col-md-4 col-md-offset-4">
           <span class="pull-right">
-            <%if !current_user.admin? %>
+            <%if current_user && !current_user.admin? %>
               <% if current_user && current_user.is_member_of?(@job) %>
                 <%= link_to quit_job_path(@job), method: :post, class: "btn btn-lg btn-danger pull-right" do%>
                 <i class="fa fa-bookmark-o">取消收藏</i><% end %>
