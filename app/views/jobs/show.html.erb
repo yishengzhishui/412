@@ -14,7 +14,7 @@
                 <%= link_to join_job_path(@job), method: :post, class: "btn btn-lg btn-success pull-right" do%>
                   <i class="fa fa-bookmark-o">收藏职位</i><% end %>
               <% end %>
-              <% if @job.resumes.count > 1%>
+              <% if @resumes.length > 0 %>
                 <%= link_to("简历已投递", job_path(@job), class: "btn btn-lg btn-info")%>
               <% else %>
                 <%= link_to("投递简历", new_job_resume_path(@job), class: "btn btn-lg btn-default")%>
