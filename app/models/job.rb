@@ -16,6 +16,9 @@ class Job < ApplicationRecord
   has_many :job_relationships
   has_many :members, through: :job_relationships, source: :user
 
+  has_many :resume_relationship
+  has_many :postmens, through: :resume_relationship, source: :user
+
   def publish!
     self.is_hidden = false
     self.save
