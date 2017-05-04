@@ -26,6 +26,10 @@
         <% else %>
            No Attachment
         <% end %>
+        <%= link_to("Edit", new_job_resume_path(@job) ,class: "btn btn-primary btn-lg pull-right")%>
+        <%= link_to job_resumes_path(@job), :method => :delete, :class => "btn btn-xs btn-danger", :data => { :confirm => "Are you sure?" } do %><i class="fa fa-trash"></i><% end %>
+
+
     </div>
 
 </div>

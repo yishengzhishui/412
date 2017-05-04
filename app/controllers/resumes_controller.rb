@@ -19,6 +19,7 @@ class ResumesController < ApplicationController
 
     if @resume.save
       current_user.join_post!(@job)
+      current_user.join!(@job)
       flash[:notice] = "成功提交简历"
       redirect_to job_path(@job)
     else
@@ -36,7 +37,7 @@ class ResumesController < ApplicationController
     @resume = find(params[:id])
 
     if @resume.update(resume_params)
-      redirect_to account_posts_path, notice: "更新简历成功！"
+      redirect_to job_path(@job) , notice: "更新简历成功！"
     else
       redirect_to :edit
     end
@@ -48,7 +49,7 @@ class ResumesController < ApplicationController
     @resume.destroy
     current_user.quit_post!(@job)
 
-    redirect_to account_posts_path
+    redirect_to job_path(@job)
   end
 
   private
