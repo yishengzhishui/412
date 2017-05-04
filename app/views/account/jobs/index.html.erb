@@ -48,8 +48,9 @@
           </td>
             <td><%= g.created_at.to_date%></td>
             <td><%= g.user.name%></td>
+            <td><%= link_to("修改简历" ,edit_job_resume_path(g), class: "btn btn-lg btn-default") %></td>
             <td>
-              <% if g.resumes.count > 0 %>
+              <% if current_user.has_postmen_of?(g)%>
                 <%= link_to job_resumes_path(g) do %>
                   <button type="button" class="btn btn-default btn-xs">
                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span> 已投
