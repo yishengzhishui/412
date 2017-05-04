@@ -15,9 +15,9 @@
                   <i class="fa fa-bookmark-o">收藏职位</i><% end %>
               <% end %>
               <% if current_user && current_user.has_postmen_of?(@job) %>
-                <%= link_to("修改简历" ,edit_job_resume_path(@job), class: "btn btn-lg btn-default") %>
+                <%= link_to("修改简历" ,edit_job_resume_path(@job), class: "btn btn-lg btn-info") %>
               <% else %>
-                <%= link_to("投递简历", new_job_resume_path(@job), class: "btn btn-lg btn-default")%>
+                <%= link_to("投递简历", new_job_resume_path(@job), class: "btn btn-lg btn-primary")%>
               <% end %>
             <% end %>
           </span>
