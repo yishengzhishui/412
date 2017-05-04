@@ -29,12 +29,12 @@ class ResumesController < ApplicationController
 
   def edit
     @job = Job.find(params[:job_id])
-    @resume = find(params[:id])
+    @resume = Resume.find(params[:id])
   end
 
   def update
     @job = Job.find(params[:job_id])
-    @resume = find(params[:id])
+    @resume = Resume.find(params[:id])
 
     if @resume.update(resume_params)
       redirect_to job_path(@job) , notice: "更新简历成功！"
