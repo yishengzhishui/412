@@ -26,8 +26,9 @@
         <% else %>
            No Attachment
         <% end %>
-        <%= link_to("Edit", new_job_resume_path(@job) ,class: "btn btn-primary btn-lg pull-right")%>
-        <%= link_to job_resumes_path(@job), :method => :delete, :class => "btn btn-xs btn-danger", :data => { :confirm => "Are you sure?" } do %><i class="fa fa-trash"></i><% end %>
+
+        <%= link_to edit_job_resume_path(@job, resume), :class => "btn btn-ms btn-info pull-right" do %><i class="fa fa-pencil"></i><% end %>
+        <%= link_to job_resumes_path(@job , resume), :method => :delete, :class => "btn btn-ms btn-danger pull-right", :data => { :confirm => "Are you sure?" } do %><i class="fa fa-trash"></i><% end %>
 
 
     </div>
