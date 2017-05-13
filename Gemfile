@@ -38,6 +38,8 @@ gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem 'ransack'
 gem 'seo_helper'
+gem 'carrierwave'
+gem 'mini_magick'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
