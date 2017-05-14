@@ -36,12 +36,12 @@
               <li class="navbar-listItem"><%= button_to("登录", new_user_session_path, method: :get,class: "btn navbar-btn btn-default") %></li>
             <% else %>
               <li class="dropdown">
-                <a href="#" class="dropdown-togggle" data-toggle="dropdown">
-                  Hi!,<%= current_user.name  %><img src= "<%= render_user_avatar(current_user, 20) %>">
+                <a href="#" class="dropdown-togggle avatar" data-toggle="dropdown">
+                  <img src= "<%= render_user_avatar(current_user, 30) %>">
                   <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                  <%= link_to("个人中心", edit_account_user_path(current_user)) %>
+                  <li><%= link_to("个人中心", edit_account_user_path(current_user)) %></li>
                   <% if current_user.admin?%>
                     <li><%= link_to("已发布的职位", admin_jobs_path)%></li>
                   <% else %>
