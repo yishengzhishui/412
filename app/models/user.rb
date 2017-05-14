@@ -11,6 +11,7 @@ class User < ApplicationRecord
     is_admin
   end
 mount_uploader :image, ImageUploader
+validates :name, presence: true
 #------收藏功能-------
   has_many :job_relationships
   has_many :participated_jobs, :through => :job_relationships, :source => :job
